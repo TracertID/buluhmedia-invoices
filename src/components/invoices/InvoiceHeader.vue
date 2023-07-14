@@ -21,29 +21,6 @@
                            :errors="errors"
                            :inline="true"
                            field="issued_at"/>
-        </BModal>
-        <br>{{ $t('due_at') }}
-        <span class="editable__item"
-              v-b-modal.modal_due_at>{{ invoice.due_at | date('D. MMM YYYY', 'YYYY-MM-DD') }}</span>
-        <BModal id="modal_due_at"
-                centered
-                :title="$t('modal_due_at_title')"
-                hide-footer
-                size="sm"
-                content-class="bg-base dp--24">
-            <AppDatePicker :value="invoice.due_at"
-                           @change="updateProp({ due_at: $event })"
-                           :errors="errors"
-                           :inline="true"
-                           field="due_at"/>
-        </BModal>
-        <br>{{ $t('late_fee') }}
-        <AppEditable :value="invoice.late_fee | currency"
-                     :errors="errors"
-                     suffix="%"
-                     field="late_fee"
-                     :placeholder="$t('add_late_fee')"
-                     @change="updateProp({ late_fee: $event })"/>
     </div>
 </template>
 <script>
